@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/SergioFerrera/blockchain_emergencias/issues"
   },
-  "homepage": "https://github.com/SergioFerrera/blockchain_emergencias#readme"
+  "homepage": "https://github.com/SergioFerrera/blockchain_emergencias#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }

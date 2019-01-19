@@ -1,0 +1,5 @@
+# Directorio de dependencia
+node_modules/
+
+# Ficheros npm
+package-lock.json

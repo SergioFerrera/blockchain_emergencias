@@ -1,0 +1,31 @@
+{
+  "name": "blockchain_emergencias",
+  "version": "1.0.0",
+  "description": "Trabajo de Fin de Grado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergioFerrera/blockchain_emergencias.git"
+  },
+  "keywords": [
+    "smart",
+    "contracts",
+    "blockchain",
+    "emergecy",
+    "emergencia",
+    "javascript",
+    "nodejs",
+    "express",
+    "bootstrap",
+    "solidity"
+  ],
+  "author": "Sergio Ferrera de Diego",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergioFerrera/blockchain_emergencias/issues"
+  },
+  "homepage": "https://github.com/SergioFerrera/blockchain_emergencias#readme"
+}

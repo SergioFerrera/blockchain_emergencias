@@ -1,0 +1,11 @@
+Language: node_js
+node_js:
+- '11'
+
+sudo: false
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - node_modules

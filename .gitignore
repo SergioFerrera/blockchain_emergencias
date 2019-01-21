@@ -3,3 +3,6 @@ node_modules/
 
 # Ficheros npm
 package-lock.json
+
+#Ficheros Ocultos
+.DS_Store

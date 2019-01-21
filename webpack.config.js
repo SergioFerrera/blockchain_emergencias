@@ -25,18 +25,6 @@ module.exports = {
       new HtmlWebpackPlugin({
         template: 'views/index.pug',
         filename: 'index.html'
-      }),
-      new HtmlWebpackPlugin({
-        template: 'views/nosotros.pug',
-        filename: 'nosotros.html'
-      }),
-      new HtmlWebpackPlugin({
-        template: 'views/servicios.pug',
-        filename: 'servicios.html'
-      }),
-      new HtmlWebpackPlugin({
-        template: 'views/contacto.pug',
-        filename: 'contacto.html'
       })
     ],
     mode: 'production',

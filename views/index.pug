@@ -1,5 +1,75 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+    a.navbar-brand(href='#') BlockChain Emergencias
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse' aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarCollapse.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='/')
+            | Inicio 
+            span.sr-only (current)
+  main.container(role='main')
+    .jumbotron
+      h1 Blockchain Emergencias
+      p.lead
+        | Aplicación de Blockchain a situaciones de emergencias 
+    .container
+    
+    .row
+      .col-md-12
+        form(action='/')
+         .form-group
+          label(for='tipo')
+           strong Tipo de Emergencia
+          select.form-control(id='tipo', required)
+            option Accidente de Trafico
+            option Incendio
+            option Homicidio
+            option Desaparición
+            option Robo
+            option Otro
+ 
+         .form-group
+          label(for='calle')
+           strong Calle / Carretera / Callejón
+          input#text.form-control(type='text' placeholder='Ingresar nombre de la calle / carretera / callejón', required)
+
+         .form-group
+          label(for='numero')
+           strong Numero
+          input#text.form-control(type='text' placeholder='Ingresar numero de la dirección', required)
+
+         .form-group
+          label(for='piso')
+           strong Piso
+          input#text.form-control(type='text' placeholder='Ingresar el piso de la dirección')
+          
+         .form-group
+          label(for='cp')
+           strong Código Postal
+          input#text.form-control(type='text' placeholder='Ingresar el código postal de la dirección', required)
+
+         .form-group
+          label(for='ambulancias')
+           strong Número de ambulancias
+          input#text.form-control(type='text' placeholder='Ingresar el número de ambulancias')
+
+         .form-group
+          label(for='bomberos')
+           strong Número de camiones de bomberos
+          input#text.form-control(type='text' placeholder='Ingresar el número de camiones de bomberos')
+         
+         .form-group
+          label(for='policias')
+           strong Número de policias
+          input#text.form-control(type='text' placeholder='Ingresar el número de policias')
+
+         .form-group
+          label(for='notas')
+           strong Notas
+          textarea#comment.form-control(rows='5')
+          br  
+          button.btn.btn-primary(type='submit') Enviar

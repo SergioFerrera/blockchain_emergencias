@@ -59,6 +59,11 @@ describe('Comprobando formulario', function() {
             expect(body).contain('<option>Otro</option>');
         });
     });
+    it('Comprobando campo especificar tipo', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('<label for="tipo"><strong>Especificar tipo de emergencia</strong></label>');
+        });
+    });
     it('Comprobando campo Latitud', function() {
         request('http://localhost:3000' , function(error, response, body) {
             expect(body).contain('<label for="latitud"><strong>Latitud</strong></label>');
@@ -87,6 +92,14 @@ describe('Comprobando formulario', function() {
     it('Comprobando campo Notas', function() {
         request('http://localhost:3000' , function(error, response, body) {
             expect(body).contain('<label for="notas"><strong>Notas</strong></label>');
+        });
+    });
+});
+
+describe('Comprobando javascript', function() {
+    it('Comprobando función para mostrar campo de especificar tipo', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('function mostrar_otro()');
         });
     });
 });

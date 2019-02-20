@@ -31,12 +31,7 @@ describe('Comprobando menu', function() {
         request('http://localhost:3000' , function(error, response, body) {
             expect(body).contain('<a class="navbar-brand" href="#">BlockChain Emergencias</a>');
         });
-    }); 
-    it('Comprobando opción inicio en el menú', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<li class="nav-item active"><a class="nav-link" href="/">Inicio');
-        });
-    }); 
+    });
 });
 
 describe('Comprobando titulo (h1) y descripción del proyecto', function() {

@@ -16,42 +16,50 @@ block content
          .form-group
           label(for='tipo')
            strong Tipo de Emergencia
-          select.form-control(id='tipo', required)
+          select.form-control(id='tipo', onclick='myFunction()', required)
             option Accidente de Trafico
             option Incendio
             option Homicidio
             option Desaparición
             option Robo
             option Otro
- 
+
+         div(id='otro_oculto', style='display:none;')
+          .form-group
+            label(for='tipo')
+            strong Especificar tipo de emergencia
+            input#tipo.form-control(type='text' placeholder='Ingresar tipo de emergencia', required)
+
          .form-group
           label(for='latitud')
            strong Latitud
-          input#text.form-control(type='text' placeholder='Ingresar latitud', required)
+          input#latitud.form-control(type='text' placeholder='Ingresar latitud', required)
 
          .form-group
           label(for='longitud')
            strong Longitud
-          input#text.form-control(type='text' placeholder='Ingresar longitud', required)
+          input#longitud.form-control(type='text' placeholder='Ingresar longitud', required)
 
          .form-group
           label(for='ambulancias')
            strong Número de ambulancias
-          input#text.form-control(type='text' placeholder='Ingresar el número de ambulancias')
+          input#ambulancias.form-control(type='text' placeholder='Ingresar el número de ambulancias')
 
          .form-group
           label(for='bomberos')
            strong Número de camiones de bomberos
-          input#text.form-control(type='text' placeholder='Ingresar el número de camiones de bomberos')
+          input#bomberos.form-control(type='text' placeholder='Ingresar el número de camiones de bomberos')
          
          .form-group
           label(for='policias')
            strong Número de policias
-          input#text.form-control(type='text' placeholder='Ingresar el número de policias')
+          input#policias.form-control(type='text' placeholder='Ingresar el número de policias')
 
          .form-group
           label(for='notas')
            strong Notas
-          textarea#comment.form-control(rows='5')
+          textarea#notas.form-control(rows='5')
           br  
           button.btn.btn-primary(type='submit') Enviar
+  script.
+    function myFunction(){if(document.getElementById("tipo").value=="Otro"){document.getElementById('otro_oculto').style.display = 'block'}}

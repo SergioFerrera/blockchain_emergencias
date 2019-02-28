@@ -1,8 +1,27 @@
 extends layout
 
 block content
-  nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
-    a.navbar-brand(href='#') BlockChain Emergencias
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4(role='navigation')
+    div.container
+      a.navbar-brand(href='#') BlockChain Emergencias
+      nav.navbar.navbar-dark.bg-dark
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarToggleExternalContent", aria-controls="navbarToggleExternalContent", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+      div.collapse.navbar-collapse(id="navbarToggleExternalContent")
+        form.form-inline
+          div.form-group.mr-md-2
+            input.form-control.form-control-sm(id="emailInput", placeholder="Email", type="email", pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}", required)
+          div.form-group.mr-md-2
+            input.form-control.form-control-sm(id="passwordInput", placeholder="Contraseña", type="password", required)
+          div.col-12.col-md-auto.p-0
+            button.btn.btn-primary.mr-2(type="submit") Login
+            button.btn.btn-secondary.mr-sm-2(href="#") Registrarse
+          div.col-12.col-md-auto.p-0
+            small
+              a(href="#", data-toggle="modal", data-target="#modalPassword") ¿contraseña olvidada?
+                
+
+
   main.container(role='main')
     .jumbotron
       h1 Blockchain Emergencias

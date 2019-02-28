@@ -105,19 +105,28 @@ describe('Comprobando javascript', function() {
 });
 
 describe('Comprobando dependencias', function() {
-    it('Comprobando jquery', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<link rel="stylesheet" href="js/jquery.min.js">');
+    describe('Javascript', function() {
+        it('Comprobando jquery', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<script src="js/jquery.min.js"></script>');
+            });
         });
-    });
-    it('Comprobando popper', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<link rel="stylesheet" href="js/popper.js">');
+        it('Comprobando bootstrap', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<script src="js/bootstrap.min.js"></script>');
+            });
         });
-    });
-    it('Comprobando bootstrap', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<link rel="stylesheet" href="js/bootstrap.min.js">');
+        it('Comprobando popper', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<script src="js/popper.js"></script>');
+            });
         });
-    });
+    })
+    describe('CSS', function() {
+        it('Comprobando bootstrap', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<link rel="stylesheet" href="css/bootstrap.min.css">');
+            });
+        });
+    })
 });

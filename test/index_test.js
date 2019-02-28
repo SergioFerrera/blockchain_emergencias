@@ -32,6 +32,38 @@ describe('Comprobando menu', function() {
             expect(body).contain('<a class="navbar-brand" href="#">BlockChain Emergencias</a>');
         });
     });
+    it('Comprobando boton de menu responsive', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('<button class="navbar-toggler"');
+        });
+    });
+    describe('Comprobando campos de inicio de sesión', function() {
+        it('Comprobando campo email', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<input class="form-control form-control-sm" id="emailInput"');
+            });
+        });
+        it('Comprobando campo contraseña', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<input class="form-control form-control-sm" id="passwordInput"');
+            });
+        });
+    });
+    it('Comprobando boton inicio de sesión', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('<button class="btn btn-primary mr-2" type="submit">Login</button>');
+        });
+    });
+    it('Comprobando boton registro', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('<button class="btn btn-secondary mr-sm-2" href="#">Registrarse</button>');
+        });
+    });
+    it('Comprobando link de contraseña olvidada', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('<small><a href="#" data-toggle="modal" data-target="#modalPassword">¿contraseña olvidada?</a></small>');
+        });
+    });
 });
 
 describe('Comprobando titulo (h1) y descripción del proyecto', function() {

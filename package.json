@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha test/index_test.js"
+    "test": "mocha --exit test"
   },
   "dependencies": {
     "bootstrap": "^4.2.1",

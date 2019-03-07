@@ -61,7 +61,17 @@ describe('Comprobando menu', function() {
     });
     it('Comprobando link de contraseña olvidada', function() {
         request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<small><a href="#" data-toggle="modal" data-target="#modalPassword">¿contraseña olvidada?</a></small>');
+            expect(body).contain('<small><a onclick="show_forgotten_password_modal()" href="#">¿contraseña olvidada?</a></small>');
+        });
+    });
+    it('Comprobando función javascript show_forgotten_password_modal', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('function show_forgotten_password_modal()');
+        });
+    });
+    it('Comprobando modal para recuperación de contraseña', function() {
+        request('http://localhost:3000' , function(error, response, body) {
+            expect(body).contain('<div class="modal fade" id="forgotten_password" tabindex="-1" role="dialog" aria-labelledby="forgotten_password_Label" aria-hidden="true">');
         });
     });
 });

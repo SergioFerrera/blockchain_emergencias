@@ -1,0 +1,10 @@
+#map
+{
+    height:300px;
+}
+body,html
+{
+    height:300px;
+    margin:0;
+    padding:0;
+}

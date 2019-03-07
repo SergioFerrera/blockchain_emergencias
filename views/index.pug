@@ -5,20 +5,21 @@ block content
     div.container
       a.navbar-brand(href='#') BlockChain Emergencias
       nav.navbar.navbar-dark.bg-dark
-        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarToggleExternalContent", aria-controls="navbarToggleExternalContent", aria-expanded="false", aria-label="Toggle navigation")
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
-      div.collapse.navbar-collapse(id="navbarToggleExternalContent")
+      div#navbarToggleExternalContent.collapse.navbar-collapse
         form.form-inline
           div.form-group.mr-md-2
-            input.form-control.form-control-sm(id="emailInput", placeholder="Email", type="email", pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}", required)
+            input#emailInput.form-control.form-control-sm(placeholder='Email', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', required)
           div.form-group.mr-md-2
-            input.form-control.form-control-sm(id="passwordInput", placeholder="Contraseña", type="password", required)
+            input#passwordInput.form-control.form-control-sm(placeholder='Contraseña', type='password', required)
           div.col-12.col-md-auto.p-0
-            button.btn.btn-primary.mr-2(type="submit") Login
-            button.btn.btn-secondary.mr-sm-2(href="#") Registrarse
+            button.btn.btn-primary.mr-2(type='submit') Login
+            a(href='registro')
+              button.btn.btn-secondary.mr-sm-2(type='button') Registrarse
           div.col-12.col-md-auto.p-0
             small
-              a(href="#", data-toggle="modal", data-target="#modalPassword") ¿contraseña olvidada?
+              a(href='#') ¿contraseña olvidada?
                 
 
 
@@ -31,11 +32,12 @@ block content
     
     .row
       .col-md-12
-        form(action='/')
+        form
          .form-group
-          label(for='tipo')
+          label(for='type')
            strong Tipo de Emergencia
-          select.form-control(id='tipo', onclick='mostrar_otro()', required)
+          select#type.form-control(onclick='show_other()', required)
+            option(value='', selected, disabled) Por favor seleccione un tipo
             option Accidente de Trafico
             option Incendio
             option Homicidio
@@ -43,42 +45,45 @@ block content
             option Robo
             option Otro
 
-         div(id='otro_oculto', style='display:none;')
+         div#other_hidden(style='display:none;')
           .form-group
-            label(for='tipo')
+            label(for='type')
             strong Especificar tipo de emergencia
-            input#tipo.form-control(type='text' placeholder='Ingresar tipo de emergencia', required)
+            input#type.form-control(type='number' placeholder='Ingresar tipo de emergencia', required)
+        
+         .form-group
+          label(for='location')
+           strong Ubicación de la emergencia
+          br
+          button.btn.btn-secondary(type='button', onclick='getLocation()') Ubicación actual
+          p#error_with_geolocation
+          input#pac-input.form-control.form-control-sm(type='text', placeholder='Introduzca la dirección postal', name='google_maps_input')
+          div#map
+          strong Latitud
+          input#latitude.form-control.form-control-sm(type='text', name='latitude', placeholder='Ingresar latitud', required)
+          strong Longitud
+          input#longitude.form-control.form-control-sm(type='text', name='longitude', placeholder='Ingresar longitud', required)
 
          .form-group
-          label(for='latitud')
-           strong Latitud
-          input#latitud.form-control(type='text' placeholder='Ingresar latitud', required)
-
-         .form-group
-          label(for='longitud')
-           strong Longitud
-          input#longitud.form-control(type='text' placeholder='Ingresar longitud', required)
-
-         .form-group
-          label(for='ambulancias')
+          label(for='ambulances')
            strong Número de ambulancias
-          input#ambulancias.form-control(type='text' placeholder='Ingresar el número de ambulancias')
+          input#ambulances.form-control(type='number' placeholder='Ingresar el número de ambulancias')
 
          .form-group
-          label(for='bomberos')
+          label(for='firefighters')
            strong Número de camiones de bomberos
-          input#bomberos.form-control(type='text' placeholder='Ingresar el número de camiones de bomberos')
+          input#firefighters.form-control(type='number' placeholder='Ingresar el número de camiones de bomberos')
          
          .form-group
-          label(for='policias')
+          label(for='police')
            strong Número de policias
-          input#policias.form-control(type='text' placeholder='Ingresar el número de policias')
+          input#police.form-control(type='number' placeholder='Ingresar el número de policias')
 
          .form-group
-          label(for='notas')
+          label(for='notes')
            strong Notas
-          textarea#notas.form-control(rows='5')
+          textarea#notes.form-control(rows='5')
           br  
           button.btn.btn-primary(type='submit') Enviar
   script.
-    function mostrar_otro(){if(document.getElementById("tipo").value=="Otro"){document.getElementById('otro_oculto').style.display = 'block';}else{document.getElementById('otro_oculto').style.display = 'none';}}
+    function show_other(){if(document.getElementById('type').value=='Otro'){document.getElementById('other_hidden').style.display = 'block';}else{document.getElementById('other_hidden').style.display = 'none';}}

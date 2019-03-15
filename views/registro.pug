@@ -4,22 +4,6 @@ block content
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4(role='navigation')
     div.container
       a.navbar-brand(href='/') BlockChain Emergencias
-      nav.navbar.navbar-dark.bg-dark
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-      div.collapse.navbar-collapse(id='navbarToggleExternalContent')
-        form.form-inline
-          div.form-group.mr-md-2
-            input#emailInput.form-control.form-control-sm(placeholder='Email', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', required)
-          div.form-group.mr-md-2
-            input#passwordInput.form-control.form-control-sm(placeholder='Contraseña', type='password', required)
-          div.col-12.col-md-auto.p-0
-            button.btn.btn-primary.mr-2(type='submit') Login
-            a(href='#')
-              button.btn.btn-secondary.mr-sm-2(type='button') Registrarse
-          div.col-12.col-md-auto.p-0
-            small
-              a(onclick='show_forgotten_password_modal()', href='#') ¿contraseña olvidada?
                 
 
 
@@ -32,21 +16,21 @@ block content
     
     .row
       .col-md-12
-        form
+        form(action='http://localhost:3000/registro', method='post', autocomplete='off')
          .form-group
           label(for='email')
            strong Email
-          input#email_registration.form-control.form-control-sm(placeholder='Email', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', required)
+          input#email_registration.form-control.form-control-sm(placeholder='Email', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', name='email', required)
 
          .form-group
           label(for='password')
            strong Contraseña
-          input#password_registration.form-control.form-control-sm(placeholder='Contraseña', type='password', required)
+          input#password_registration.form-control.form-control-sm(placeholder='Contraseña', type='password', name='password', required)
 
          .form-group
           label(for='organization')
            strong Nombre de la organización
-          input#organization.form-control.form-control-sm(placeholder='Ingresar el nombre de la organización', type='text', required)
+          input#organization.form-control.form-control-sm(placeholder='Ingresar el nombre de la organización', type='text', name='organization', required)
 
           .form-group
           label(for='location')
@@ -63,16 +47,16 @@ block content
           .form-group
           label(for='ambulances')
            strong Número de ambulancias
-          input#ambulances.form-control(type='number' placeholder='Ingresar el número de ambulancias')
+          input#ambulances.form-control(type='number' placeholder='Ingresar el número de ambulancias', name='ambulances', required)
 
          .form-group
           label(for='firefighters')
            strong Número de camiones de bomberos
-          input#firefighters.form-control(type='number' placeholder='Ingresar el número de camiones de bomberos')
+          input#firefighters.form-control(type='number' placeholder='Ingresar el número de camiones de bomberos', name='firefighters', required)
          
          .form-group
           label(for='police')
            strong Número de policias
-          input#police.form-control(type='number' placeholder='Ingresar el número de policias')
+          input#police.form-control(type='number' placeholder='Ingresar el número de policias', name='police', required)
           br  
           button.btn.btn-primary(type='submit') Enviar

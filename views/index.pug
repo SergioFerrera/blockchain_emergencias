@@ -8,22 +8,34 @@ block content
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
       div#navbarToggleExternalContent.collapse.navbar-collapse
-        form.form-inline
-          div.form-group.mr-md-2
-            input#emailInput.form-control.form-control-sm(placeholder='Email', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', required)
-          div.form-group.mr-md-2
-            input#passwordInput.form-control.form-control-sm(placeholder='Contraseña', type='password', required)
-          div.col-12.col-md-auto.p-0
-            button.btn.btn-primary.mr-2(type='submit') Login
-            a(href='registro')
-              button.btn.btn-secondary.mr-sm-2(type='button') Registrarse
-          div.col-12.col-md-auto.p-0
-            small
-              a(onclick='show_forgotten_password_modal()', href='#') ¿contraseña olvidada?
+        if isAuthenticated 
+          form.form-inline.text-white
+            div.col-12.col-md-auto.p-0
+              a(href='solicitud')
+                button.btn.btn-primary.mr-2(type='button') Emergencia
+              a(href='cierre_sesion')
+                button.btn.btn-secondary.mr-2(type='button') Cerrar sesión
+        else
+          form.form-inline(action='/', method='post', autocomplete='off')
+            div.form-group.mr-md-2
+              input#emailInput.form-control.form-control-sm(placeholder='Email', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', name='username', required)
+            div.form-group.mr-md-2
+              input#passwordInput.form-control.form-control-sm(placeholder='Contraseña', type='password', name='password', required)
+            div.col-12.col-md-auto.p-0
+              button.btn.btn-primary.mr-2(type='submit') Login
+              a(href='registro')
+                button.btn.btn-secondary.mr-sm-2(type='button') Registrarse
+            div.col-12.col-md-auto.p-0
+              small
+                a(onclick='show_forgotten_password_modal()', href='#') ¿contraseña olvidada?
                 
 
 
   main.container(role='main')
+    if message.length > 0
+      div.alert.alert-success(role='alert') Se ha registrado satisfactoriamente
+    if authmessage.length > 0
+      div.alert.alert-danger(role='alert') Email o contraseña incorrecta
     .jumbotron
       h1 Blockchain Emergencias
       p.lead

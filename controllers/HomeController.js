@@ -5,7 +5,8 @@ module.exports = {
             message: req.flash('info'),
             authmessage : req.flash('authmessage'),
             isAuthenticated : req.isAuthenticated(),
-            user : req.user
+            user : req.user,
+            title: 'Pagina de inicio'
         });
     }
 }

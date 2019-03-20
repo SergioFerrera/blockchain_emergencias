@@ -16,7 +16,7 @@ describe('Comprobando código de estado HTTP 404', function() {
 describe('Comprobando titulo de la herramienta', function() {
     it('Comprobando etiqueta title y contenido', function() {
         request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<title>Registro</title>');
+            expect(body).contain('<title>Pagina de registro</title>');
         });
     });
 });
@@ -30,48 +30,6 @@ describe('Comprobando menu', function() {
     it('Comprobando etiqueta nav-brand y su contenido', function() {
         request('http://localhost:3000/registro' , function(error, response, body) {
             expect(body).contain('<a class="navbar-brand" href="/">BlockChain Emergencias</a>');
-        });
-    });
-    it('Comprobando boton de menu responsive', function() {
-        request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<button class="navbar-toggler"');
-        });
-    });
-    describe('Comprobando campos de inicio de sesión', function() {
-        it('Comprobando campo email', function() {
-            request('http://localhost:3000/registro' , function(error, response, body) {
-                expect(body).contain('<input class="form-control form-control-sm" id="emailInput"');
-            });
-        });
-        it('Comprobando campo contraseña', function() {
-            request('http://localhost:3000/registro' , function(error, response, body) {
-                expect(body).contain('<input class="form-control form-control-sm" id="passwordInput"');
-            });
-        });
-    });
-    it('Comprobando boton inicio de sesión', function() {
-        request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<button class="btn btn-primary mr-2" type="submit">Login</button>');
-        });
-    });
-    it('Comprobando boton registro', function() {
-        request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<button class="btn btn-secondary mr-sm-2" type="button">Registrarse</button>');
-        });
-    });
-    it('Comprobando link de contraseña olvidada', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<small><a onclick="show_forgotten_password_modal()" href="#">¿contraseña olvidada?</a></small>');
-        });
-    });
-    it('Comprobando función javascript show_forgotten_password_modal', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('function show_forgotten_password_modal()');
-        });
-    });
-    it('Comprobando modal para recuperación de contraseña', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<div class="modal fade" id="forgotten_password" tabindex="-1" role="dialog" aria-labelledby="forgotten_password_Label" aria-hidden="true">');
         });
     });
 });
@@ -152,7 +110,7 @@ describe('Comprobando formulario', function() {
     });
     it('Comprobando botón enviar', function() {
         request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<button class="btn btn-primary" type="submit" name="test_button">Enviar</button>');
+            expect(body).contain('<button class="btn btn-primary" type="submit">Enviar</button>');
         });
     });
 });

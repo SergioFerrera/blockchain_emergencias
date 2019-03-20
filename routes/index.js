@@ -12,7 +12,7 @@ router.get('/registro', controllers.UserController.getSignUp);
 router.post('/registro', controllers.UserController.postSignUp);
 
 /* GET emergency form page. */ 
-router.get('/solicitud', controllers.UserController.getEmergency);
+router.get('/solicitud', AuthMiddleware.isLogged, controllers.UserController.getEmergency);
 
 /* POST login. */ 
 router.post('/', passport.authenticate('local', {

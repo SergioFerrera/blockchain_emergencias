@@ -16,7 +16,7 @@ describe('Comprobando código de estado HTTP 404', function() {
 describe('Comprobando titulo de la herramienta', function() {
     it('Comprobando etiqueta title y contenido', function() {
         request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<title>BlockChain Emergencias</title>');
+            expect(body).contain('<title>Pagina de inicio</title>');
         });
     });
 });
@@ -59,21 +59,6 @@ describe('Comprobando menu', function() {
             expect(body).contain('<button class="btn btn-secondary mr-sm-2" type="button">Registrarse</button>');
         });
     });
-    it('Comprobando link de contraseña olvidada', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<small><a onclick="show_forgotten_password_modal()" href="#">¿contraseña olvidada?</a></small>');
-        });
-    });
-    it('Comprobando función javascript show_forgotten_password_modal', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('function show_forgotten_password_modal()');
-        });
-    });
-    it('Comprobando modal para recuperación de contraseña', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<div class="modal fade" id="forgotten_password" tabindex="-1" role="dialog" aria-labelledby="forgotten_password_Label" aria-hidden="true">');
-        });
-    });
 });
 
 describe('Comprobando titulo (h1) y descripción del proyecto', function() {
@@ -89,84 +74,17 @@ describe('Comprobando titulo (h1) y descripción del proyecto', function() {
     });
 });
 
-describe('Comprobando formulario', function() {
-    it('Comprobando campo tipo de emergencia y sus opciones a escoger', function() {
+describe('Comprobando descripción de aplicativo', function() {
+    it('Comprobando parrafos', function() {
         request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<div class="form-group"><label for="type"><strong>Tipo de Emergencia</strong></label>');
-            expect(body).contain('<option>Accidente de Trafico</option>');
-            expect(body).contain('<option>Incendio</option>');
-            expect(body).contain('<option>Homicidio</option>');
-            expect(body).contain('<option>Desaparición</option>');
-            expect(body).contain('<option>Robo</option>');
-            expect(body).contain('<option>Otro</option>');
+            expect(body).contain('<p>El objetivo principal del TFG es el desarrollo de una aplicación capaz de poder decidir en tiempo real qué organizaciones pueden aportar qué recursos en una situación de emergencia, teniendo en cuenta aspectos como la distancia de estas con respecto a la emergencia ocurrida y si son capaces de aportar los recursos necesarios o si por el contrario solo son capaces de ofrecer parte de los solicitados o ninguno.</p>');
+            expect(body).contain('<p>En el caso del abastecimiento de recursos de forma parcial, el aplicativo seria capaz de solicitarlos a la organización más cercana y el resto a la siguiente que se encuentre más cerca de la emergencia, obteniendo así una respuesta más veloz ante la situación de emergencia.</p>');
+            expect(body).contain('<p>Además, la aplicación, facilitaría las comunicaciones entre el servicio de emergencias con las organizaciones que aportan los recursos, ya que todos los participes harían uso de la misma plataforma.</p>');
         });
     });
-    it('Comprobando campo especificar tipo', function() {
+    it('Comprobando imagen del logo de la ULL', function() {
         request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<label for="type"><strong>Especificar tipo de emergencia</strong></label>');
-        });
-    });
-    it('Comprobando sección de formulario Ubicación', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<label for="location"><strong>Ubicación de la emergencia</strong></label>');
-        });
-    });
-    it('Comprobando botón Ubicación Actual', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<button class="btn btn-secondary" type="button" onclick="getLocation()">Ubicación actual</button>');
-        });
-    });
-    it('Comprobando campo en caso de error con la geolocalización', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<p id="error_with_geolocation"></p>');
-        });
-    });
-    it('Comprobando input de Google Maps API', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="pac-input"');
-        });
-    });
-    it('Comprobando campo Latitud', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="latitude"');
-        });
-    });
-    it('Comprobando campo Longitud', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="longitude"');
-        });
-    });
-    it('Comprobando campo Número de ambulancias', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<label for="ambulances"><strong>Número de ambulancias</strong></label>');
-        });
-    });
-    it('Comprobando campo Número de camiones de bomberos', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<label for="firefighters"><strong>Número de camiones de bomberos</strong></label>');
-        });
-    });
-    it('Comprobando campo Número de policias', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<label for="police"><strong>Número de policias</strong></label>');
-        });
-    });
-    it('Comprobando campo Notas', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('<label for="notes"><strong>Notas</strong></label>');
-        });
-    });
-    it('Comprobando botón enviar', function() {
-        request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<button class="btn btn-primary" type="submit" name="test_button">Enviar</button>');
-        });
-    });
-});
-
-describe('Comprobando javascript', function() {
-    it('Comprobando función para mostrar campo de especificar tipo', function() {
-        request('http://localhost:3000' , function(error, response, body) {
-            expect(body).contain('function show_other()');
+            expect(body).contain('<img class="img-fluid img-thumbnail" src="/img/Logo_ULL_2018.jpg" alt="ULL logo">');
         });
     });
 });

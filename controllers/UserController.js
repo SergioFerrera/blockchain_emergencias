@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 module.exports = {
     getSignUp : function(req, res, next)
     {
-        return res.render('registro');
+        return res.render('registro', {title: 'Pagina de registro'});
     },
     postSignUp : function(req, res, next)
     {
@@ -35,7 +35,8 @@ module.exports = {
         return res.render('solicitud', {
             message: req.flash('info'),
             isAuthenticated : req.isAuthenticated(),
-            user : req.user
+            user : req.user,
+            title: 'Pagina de solicitud de recursos'
         });
     },
     logout : function(req, res, next)

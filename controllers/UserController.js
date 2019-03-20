@@ -38,10 +38,6 @@ module.exports = {
             user : req.user
         });
     },
-    getPanel : function(req, res, next)
-    {
-        return res.render('panel', {user : req.user});
-    },
     logout : function(req, res, next)
     {
         req.logout();

@@ -3,7 +3,7 @@ extends layout
 block content
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4(role='navigation')
     div.container
-      a.navbar-brand(href='#') BlockChain Emergencias
+      a.navbar-brand(href='/') BlockChain Emergencias
       nav.navbar.navbar-dark.bg-dark
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
@@ -25,17 +25,14 @@ block content
               button.btn.btn-primary.mr-2(type='submit') Login
               a(href='registro')
                 button.btn.btn-secondary.mr-sm-2(type='button') Registrarse
-            div.col-12.col-md-auto.p-0
-              small
-                a(onclick='show_forgotten_password_modal()', href='#') ¿contraseña olvidada?
                 
 
 
   main.container(role='main')
     if message.length > 0
-      div.alert.alert-success(role='alert') Se ha registrado satisfactoriamente
+      div.alert.alert-success(role='alert') #{message}
     if authmessage.length > 0
-      div.alert.alert-danger(role='alert') Email o contraseña incorrecta
+      div.alert.alert-danger(role='alert') #{authmessage}
     .jumbotron
       h1 Blockchain Emergencias
       p.lead

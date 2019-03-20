@@ -13,20 +13,3 @@ html
     script(src='js/popper.js')
     script(src='js/map.min.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAR51eYlvnZn7xXA-4ZCdQW8CnDXTdy8NY&libraries=places&callback=initAutocomplete', async, defer)
-    <!-- forgotten_password_modal -->
-    script.
-      function show_forgotten_password_modal(){$('#forgotten_password').modal('show');}
-    div#forgotten_password.modal.fade(tabindex='-1', role='dialog', aria-labelledby='forgotten_password_Label', aria-hidden='true')
-      div.modal-dialog(role='document')
-        div.modal-content
-          div.modal-header
-            h5#forgotten_password_Label.modal-title Recuperación de contraseña
-            button.close(type='button', data-dismiss='modal', aria-label='Close')
-              span(aria-hidden='true') &times;
-          form
-            div.modal-body 
-              p Introduzca el email con el cual se registro por favor:
-              input#email_forgotten.form-control.form-control-sm(placeholder='Email de registro', type='email', pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}', required)
-            div.modal-footer
-              button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
-              button.btn.btn-primary(type='submit') Enviar

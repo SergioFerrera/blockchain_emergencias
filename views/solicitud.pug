@@ -77,3 +77,16 @@ block content
           button.btn.btn-primary(type='submit') Enviar
   script.
     function show_other(){if(document.getElementById('type').value=='Otro'){document.getElementById('other_hidden').style.display = 'block';}else{document.getElementById('other_hidden').style.display = 'none';}}
+  script. 
+    if (typeof web3 !== 'undefined') 
+    {
+      web3 = new Web3(web3.currentProvider);
+    } 
+    else 
+    {
+       web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+    }
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+    const contract = JSON.parse(fs.readFileSync('blockchain-project/build/contracts/EmergencyContract.json', 'utf8'));
+    var emergency_contract = web3.eth.contract(JSON.stringify(contract.abi));
+    var EmergencyContract = emergency_contract.at('PASTE CONTRACT ADDRESS HERE');

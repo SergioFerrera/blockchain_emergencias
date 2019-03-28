@@ -38,10 +38,10 @@ app.use('/img', express.static(__dirname + '/img'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/dist/css'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
-app.use('/js', express.static(__dirname + '/node_modules/popper.js/dist'));
+app.use('/js/umd', express.static(__dirname + '/node_modules/popper.js/dist/umd'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+app.use('/js', express.static(__dirname + '/node_modules/web3/dist'));
 app.use('/js', express.static(__dirname + '/dist/js'));
-app.use('/blockchain-project', express.static(__dirname + '/blockchain-project'));
 
 app.use('/', indexRouter);
 

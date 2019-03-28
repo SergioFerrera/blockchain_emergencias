@@ -75,6 +75,8 @@ block content
            
           br  
           button.btn.btn-primary(type='submit') Enviar
+  script(src='js/map.min.js')
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAR51eYlvnZn7xXA-4ZCdQW8CnDXTdy8NY&libraries=places&callback=initAutocomplete', async, defer)
   script.
     function show_other(){if(document.getElementById('type').value=='Otro'){document.getElementById('other_hidden').style.display = 'block';}else{document.getElementById('other_hidden').style.display = 'none';}}
   script. 

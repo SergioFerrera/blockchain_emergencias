@@ -4,5 +4,8 @@ node_modules/
 # Ficheros npm
 package-lock.json
 
+# Ficheros yarn
+yarn.lock
+
 #Ficheros Ocultos
 .DS_Store

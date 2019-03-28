@@ -2,13 +2,16 @@ pragma solidity >=0.5.0;
 
 contract EmergencyContract
 {
-    uint ambulances = 0;
-    uint firefighters = 0;
-    uint police = 0;
+    uint public ambulances = 0;
+    uint public firefighters = 0;
+    uint public police = 0;
     address private owner;
     
     constructor () public
     { 
+        ambulances = 0;
+        firefighters = 0;
+        police = 0;
         owner = msg.sender; 
     } 
     
@@ -23,20 +26,5 @@ contract EmergencyContract
         ambulances = n_a;
         firefighters = n_f;
         police = n_p;
-    }
-    
-    function get_ambulances() public view returns (uint)
-    {
-        return ambulances;
-    }
-    
-    function get_firefighters() public view returns (uint)
-    {
-        return firefighters;
-    }
-    
-    function get_police() public view returns (uint)
-    {
-        return police;
     }
 }

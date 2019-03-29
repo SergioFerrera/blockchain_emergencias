@@ -3,6 +3,9 @@ node_js:
 - '11'
 
 sudo: enabled
+branches:
+  only:
+  - master
 cache: yarn
 before_install:
 - npm install -g npm@latest

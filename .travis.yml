@@ -17,4 +17,4 @@ script:
 - yarn test
 - ganache-cli -p 7545 &
 - cd blockchain-project
-- truffle test
+- yarn test_contract

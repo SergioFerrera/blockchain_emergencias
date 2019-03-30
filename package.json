@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --exit test",
-    "test_contract": "truffle test"
+    "test": "mocha --exit test"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

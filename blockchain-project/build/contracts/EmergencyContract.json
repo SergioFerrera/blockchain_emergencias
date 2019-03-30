@@ -77,6 +77,7 @@
       "signature": "0x3e9fbc77"
     }
   ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"n_a\",\"type\":\"uint256\"},{\"name\":\"n_f\",\"type\":\"uint256\"},{\"name\":\"n_p\",\"type\":\"uint256\"}],\"name\":\"set_resources\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"firefighters\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"ambulances\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"police\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ryukgt/Documents/Uni/Cuarto/Segundo Cuatrimestre/TFG/blockchain_emergencias/blockchain-project/contracts/emergency_resources.sol\":\"EmergencyContract\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ryukgt/Documents/Uni/Cuarto/Segundo Cuatrimestre/TFG/blockchain_emergencias/blockchain-project/contracts/emergency_resources.sol\":{\"keccak256\":\"0x6629f47ab30c4f7dd2dc67c8e98f1415ea5331ac35dccbcf1e0de00e72753ac7\",\"urls\":[\"bzzr://233c63eaf6b75f9eca1cda1106b4cb7393be59e3d14f42558f0a238fdfbd1b53\"]}},\"version\":1}",
   "bytecode": "0x6080604052600080556000600155600060025534801561001e57600080fd5b50600080819055506000600181905550600060028190555033600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101eb806100866000396000f3fe608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633e9fbc771461006757806387267f20146100b65780638d9c28b9146100e1578063c7330dd41461010c575b600080fd5b34801561007357600080fd5b506100b46004803603606081101561008a57600080fd5b81019080803590602001909291908035906020019092919080359060200190929190505050610137565b005b3480156100c257600080fd5b506100cb6101ad565b6040518082815260200191505060405180910390f35b3480156100ed57600080fd5b506100f66101b3565b6040518082815260200191505060405180910390f35b34801561011857600080fd5b506101216101b9565b6040518082815260200191505060405180910390f35b3373ffffffffffffffffffffffffffffffffffffffff16600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561019357600080fd5b826000819055508160018190555080600281905550505050565b60015481565b60005481565b6002548156fea165627a7a723058200a25f83ff64ffb63e32d8b6f487d9d5f8e60a33032d87cddb2f95974648818460029",
   "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633e9fbc771461006757806387267f20146100b65780638d9c28b9146100e1578063c7330dd41461010c575b600080fd5b34801561007357600080fd5b506100b46004803603606081101561008a57600080fd5b81019080803590602001909291908035906020019092919080359060200190929190505050610137565b005b3480156100c257600080fd5b506100cb6101ad565b6040518082815260200191505060405180910390f35b3480156100ed57600080fd5b506100f66101b3565b6040518082815260200191505060405180910390f35b34801561011857600080fd5b506101216101b9565b6040518082815260200191505060405180910390f35b3373ffffffffffffffffffffffffffffffffffffffff16600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614151561019357600080fd5b826000819055508160018190555080600281905550505050565b60015481565b60005481565b6002548156fea165627a7a723058200a25f83ff64ffb63e32d8b6f487d9d5f8e60a33032d87cddb2f95974648818460029",
   "sourceMap": "26:555:1:-;;;84:1;59:26;;118:1;91:28;;146:1;125:22;;185:133;8:9:-1;5:2;;;30:1;27;20:12;5:2;185:133:1;235:1;222:10;:14;;;;261:1;246:12;:16;;;;281:1;272:6;:10;;;;300;292:5;;:18;;;;;;;;;;;;;;;;;;26:555;;;;;;",
@@ -1783,8 +1784,8 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xaa61bE556ac58061736029AdC6A1b27Eeb16247C",
-      "transactionHash": "0xefe1b74142a8ba5c446177139224af22a4000f41f56ef77b1546b3c710d8873f"
+      "address": "0x9EfF89ab6320FE8AB91a4a159bA15A4FC52afbE9",
+      "transactionHash": "0x64e63910084eb2003c341bebb604ac761bb54cabc567b1946697ae44e6b33e8b"
     },
     "1553861742686": {
       "events": {},
@@ -1794,7 +1795,7 @@
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-03-29T12:17:22.923Z",
+  "updatedAt": "2019-03-29T14:30:36.656Z",
   "devdoc": {
     "methods": {}
   },

@@ -128,8 +128,8 @@ describe('Comprobando dependencias', function() {
             });
         });
         it('Comprobando popper', function() {
-            request('http://localhost:3000/registro' , function(error, response, body) {
-                expect(body).contain('<script src="js/popper.js"></script>');
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<script src="js/umd/popper.min.js"></script>');
             });
         });
         it('Comprobando Google Maps API', function() {

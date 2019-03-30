@@ -103,13 +103,7 @@ describe('Comprobando dependencias', function() {
         });
         it('Comprobando popper', function() {
             request('http://localhost:3000' , function(error, response, body) {
-                expect(body).contain('<script src="js/popper.js"></script>');
-            });
-        });
-        it('Comprobando Google Maps API', function() {
-            request('http://localhost:3000' , function(error, response, body) {
-                expect(body).contain('<script src="js/map.min.js"></script>');
-                expect(body).contain('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR51eYlvnZn7xXA-4ZCdQW8CnDXTdy8NY&amp;libraries=places&amp;callback=initAutocomplete" async defer></script>');
+                expect(body).contain('<script src="js/umd/popper.min.js"></script>');
             });
         });
     })

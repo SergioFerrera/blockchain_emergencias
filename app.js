@@ -36,12 +36,15 @@ app.use(passport.session());
 app.use('/img', express.static(__dirname + '/img'));
 // Bootstrap 4 y librerías necesarias
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-app.use('/css', express.static(__dirname + '/dist/css'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/js/umd', express.static(__dirname + '/node_modules/popper.js/dist/umd'));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
-app.use('/js', express.static(__dirname + '/node_modules/web3/dist'));
+app.use('/node_modules/web3/dist', express.static(__dirname + '/node_modules/web3/dist'));
+app.use('/node_modules/truffle-contract/dist', express.static(__dirname + '/node_modules/truffle-contract/dist'));
+app.use('/js/blockchain-project/build/contracts/', express.static(__dirname + '/blockchain-project/build/contracts/'));
+app.use('/blockchain-project', express.static(__dirname + '/blockchain-project'));
 app.use('/js', express.static(__dirname + '/dist/js'));
+app.use('/css', express.static(__dirname + '/dist/css'));
 
 app.use('/', indexRouter);
 

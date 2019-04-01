@@ -74,21 +74,10 @@ block content
           input#police.form-control(type='number' placeholder='Ingresar el número de policias')
            
           br  
-          button.btn.btn-primary(type='submit') Enviar
+          button.btn.btn-primary(type='submit', href='#', onclick='set_resources()') Enviar
+  script(src='node_modules/web3/dist/web3.min.js')
+  script(src='js/smart_contract.js')
   script(src='js/map.min.js')
   script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAR51eYlvnZn7xXA-4ZCdQW8CnDXTdy8NY&libraries=places&callback=initAutocomplete', async, defer)
   script.
     function show_other(){if(document.getElementById('type').value=='Otro'){document.getElementById('other_hidden').style.display = 'block';}else{document.getElementById('other_hidden').style.display = 'none';}}
-  script. 
-    if (typeof web3 !== 'undefined') 
-    {
-      web3 = new Web3(web3.currentProvider);
-    } 
-    else 
-    {
-       web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
-    }
-    web3.eth.defaultAccount = web3.eth.accounts[0];
-    const contract = JSON.parse(fs.readFileSync('blockchain-project/build/contracts/EmergencyContract.json', 'utf8'));
-    var emergency_contract = web3.eth.contract(JSON.stringify(contract.abi));
-    var EmergencyContract = emergency_contract.at('PASTE CONTRACT ADDRESS HERE');

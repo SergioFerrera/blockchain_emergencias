@@ -128,7 +128,7 @@ describe('Comprobando formulario', function() {
     });
     it('Comprobando botón enviar', function() {
         request('http://localhost:3000/solicitud/registro' , function(error, response, body) {
-            expect(body).contain('<button class="btn btn-primary" type="submit" name="test_button">Enviar</button>');
+            expect(body).contain('<button class="btn btn-primary" type="submit" href="#" onclick="set_resources()">Enviar</button>');
         });
     });
 });
@@ -156,6 +156,16 @@ describe('Comprobando dependencias', function() {
         it('Comprobando popper', function() {
             request('http://localhost:3000' , function(error, response, body) {
                 expect(body).contain('<script src="js/umd/popper.min.js"></script>');
+            });
+        });
+        it('Comprobando web3', function() {
+            request('http://localhost:3000/solicitud' , function(error, response, body) {
+                expect(body).contain('<script src="node_modules/web3/dist/web3.min.js"></script>');
+            });
+        });
+        it('Comprobando javascript de enlace al contrato', function() {
+            request('http://localhost:3000/solicitud' , function(error, response, body) {
+                expect(body).contain('<script src="js/smart_contract.js"></script>');
             });
         });
         it('Comprobando Google Maps API', function() {

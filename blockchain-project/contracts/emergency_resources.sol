@@ -2,9 +2,9 @@ pragma solidity >=0.5.0;
 
 contract EmergencyContract
 {
-    uint public ambulances = 0;
-    uint public firefighters = 0;
-    uint public police = 0;
+    int public ambulances = 0;
+    int public firefighters = 0;
+    int public police = 0;
     address private owner;
     
     constructor () public
@@ -21,7 +21,7 @@ contract EmergencyContract
         _; 
     }
     
-    function set_resources(uint n_a, uint n_f, uint n_p) onlyOwner public
+    function set_resources(int n_a, int n_f, int n_p) onlyOwner public
     {
         ambulances = n_a;
         firefighters = n_f;

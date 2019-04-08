@@ -81,6 +81,30 @@ describe('Comprobando formulario', function() {
             expect(body).contain('<label for="type"><strong>Especificar tipo de emergencia</strong></label>');
         });
     });
+    it('Comprobando campo tipo de alertante y sus opciones a escoger', function() {
+        request('http://localhost:3000/solicitud' , function(error, response, body) {
+            expect(body).contain('<div class="form-group"><label for="alertant_type"><strong>Tipo de alertante</strong></label>');
+            expect(body).contain('<option>Propio afectado</option>');
+            expect(body).contain('<option>Relacionado con el afectado</option>');
+            expect(body).contain('<option>Externo</option>');
+        });
+    });
+    it('Comprobando sección datos del alertante y sus respectivos campos', function() {
+        request('http://localhost:3000/solicitud' , function(error, response, body) {
+            expect(body).contain('<label for="alertant_data"><strong>Datos del alertante</strong></label>');
+            expect(body).contain('<input class="form-control" id="alertant_first_name"');
+            expect(body).contain('<input class="form-control" id="alertant_last_name"');
+            expect(body).contain('<input class="form-control" id="alertant_phone"');
+        });
+    });
+    it('Comprobando sección datos del afectado y sus respectivos campos', function() {
+        request('http://localhost:3000/solicitud' , function(error, response, body) {
+            expect(body).contain('<label for="affected_data"><strong>Datos del afectado</strong></label>');
+            expect(body).contain('<input class="form-control" id="affected_first_name"');
+            expect(body).contain('<input class="form-control" id="affected_last_name"');
+            expect(body).contain('<input class="form-control" id="affected_phone"');
+        });
+    });
     it('Comprobando sección de formulario Ubicación', function() {
         request('http://localhost:3000/solicitud' , function(error, response, body) {
             expect(body).contain('<label for="location"><strong>Ubicación de la emergencia</strong></label>');
@@ -103,12 +127,12 @@ describe('Comprobando formulario', function() {
     });
     it('Comprobando campo Latitud', function() {
         request('http://localhost:3000/solicitud' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="latitude"');
+            expect(body).contain('<input class="form-control" id="latitude"');
         });
     });
     it('Comprobando campo Longitud', function() {
         request('http://localhost:3000/solicitud' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="longitude"');
+            expect(body).contain('<input class="form-control" id="longitude"');
         });
     });
     it('Comprobando campo Número de ambulancias', function() {
@@ -172,6 +196,11 @@ describe('Comprobando dependencias', function() {
             request('http://localhost:3000/solicitud' , function(error, response, body) {
                 expect(body).contain('<script src="js/map.min.js"></script>');
                 expect(body).contain('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR51eYlvnZn7xXA-4ZCdQW8CnDXTdy8NY&amp;libraries=places&amp;callback=initAutocomplete" async defer></script>');
+            });
+        });
+        it('Comprobando javascript para campos del formulario', function() {
+            request('http://localhost:3000/solicitud' , function(error, response, body) {
+                expect(body).contain('<script src="js/form_emergency.min.js"></script>');
             });
         });
     })

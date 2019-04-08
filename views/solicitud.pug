@@ -18,7 +18,7 @@ block content
 
   main.container(role='main')
     if message.length > 0
-      div.alert.alert-success(role='alert') Se ha registrado satisfactoriamente
+      div.alert.alert-success(role='alert') #{message}
     .jumbotron
       h1 Formulario para emergencia
       p.lead Proceso de solicitud de recursos para una emergencia
@@ -26,7 +26,7 @@ block content
     
     .row
       .col-md-12
-        form
+        form(action='/solicitud', method='post', autocomplete='off')
           .form-group
             label(for='type') 
               strong Tipo de Emergencia
@@ -43,7 +43,7 @@ block content
             .form-group
               label(for='type')
                 strong Especificar tipo de emergencia
-              input#type.form-control(type='text' placeholder='Ingresar tipo de emergencia', required)
+              input#type.form-control(type='text' placeholder='Ingresar tipo de emergencia')
 
           .form-group
             label(for='alertant_type')
@@ -102,7 +102,7 @@ block content
             label(for='police')
               strong Número de policias
             input#police.form-control(type='number' placeholder='Ingresar el número de policias')
-           
+          
           button.btn.btn-primary(type='submit', href='#', onclick='set_resources()') Enviar
   script(src='js/form_emergency.min.js')
   script(src='node_modules/web3/dist/web3.min.js')

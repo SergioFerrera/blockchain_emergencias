@@ -12,7 +12,8 @@ router.get('/registro', controllers.UserController.getSignUp);
 router.post('/registro', controllers.UserController.postSignUp);
 
 /* GET emergency form page. */ 
-router.get('/solicitud', AuthMiddleware.isLogged, controllers.UserController.getEmergency);
+router.get('/solicitud', AuthMiddleware.isLogged, controllers.SmartContractController.getEmergency);
+router.post('/solicitud', AuthMiddleware.isLogged, controllers.SmartContractController.postEmergency);
 
 /* POST login. */ 
 router.post('/', passport.authenticate('local', {

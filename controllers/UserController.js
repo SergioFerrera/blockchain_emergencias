@@ -30,15 +30,6 @@ module.exports = {
         req.flash('info', 'Se ha registrado satisfactoriamente');
         return res.redirect('/');
     },
-    getEmergency : function(req, res, next)
-    {
-        return res.render('solicitud', {
-            message: req.flash('info'),
-            isAuthenticated : req.isAuthenticated(),
-            user : req.user,
-            title: 'Pagina de solicitud de recursos'
-        });
-    },
     logout : function(req, res, next)
     {
         req.logout();

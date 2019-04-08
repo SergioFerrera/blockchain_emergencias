@@ -48,6 +48,14 @@ describe('Comprobando titulo (h1) y descripción del proyecto', function() {
 });
 
 describe('Comprobando formulario', function() {
+    it('Comprobando campo tipo de usuario y sus opciones a escoger', function() {
+        request('http://localhost:3000/solicitud' , function(error, response, body) {
+            expect(body).contain('<div class="form-group"><label for="user_type"><strong>Tipo de usuario</strong></label>');
+            expect(body).contain('<option>Operador de emergencias</option>');
+            expect(body).contain('<option>Proveedor de recursos</option>');
+            expect(body).contain('<option>Solicitante y proveedor de recursos</option>');
+        });
+    });
     it('Comprobando campo email', function() {
         request('http://localhost:3000/registro' , function(error, response, body) {
             expect(body).contain('<label for="email"><strong>Email</strong></label>');
@@ -85,12 +93,12 @@ describe('Comprobando formulario', function() {
     });
     it('Comprobando campo Latitud', function() {
         request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="latitude"');
+            expect(body).contain('<input class="form-control" id="latitude"');
         });
     });
     it('Comprobando campo Longitud', function() {
         request('http://localhost:3000/registro' , function(error, response, body) {
-            expect(body).contain('<input class="form-control form-control-sm" id="longitude"');
+            expect(body).contain('<input class="form-control" id="longitude"');
         });
     });
     it('Comprobando campo Número de ambulancias', function() {
@@ -136,6 +144,11 @@ describe('Comprobando dependencias', function() {
             request('http://localhost:3000/registro' , function(error, response, body) {
                 expect(body).contain('<script src="js/map.min.js"></script>');
                 expect(body).contain('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR51eYlvnZn7xXA-4ZCdQW8CnDXTdy8NY&amp;libraries=places&amp;callback=initAutocomplete" async defer></script>');
+            });
+        });
+        it('Comprobando javascript para campos del formulario', function() {
+            request('http://localhost:3000/solicitud' , function(error, response, body) {
+                expect(body).contain('<script src="js/form_register.min.js"></script>');
             });
         });
     })

@@ -2,7 +2,7 @@ var contract = require('../../blockchain-project/build/contracts/EmergencyContra
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 var EmergencyContract = web3.eth.contract(contract.abi);
-var contractInstance = EmergencyContract.at('0x9EfF89ab6320FE8AB91a4a159bA15A4FC52afbE9');
+var contractInstance = EmergencyContract.at(contract.networks["5777"].address);
 
 module.exports = {
     set_resources : function (resources)

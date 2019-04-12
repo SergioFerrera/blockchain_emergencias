@@ -62,7 +62,7 @@ block content
             .form-group.col-md-4
               input#alertant_last_name.form-control(type='text', name='alertant_last_name', placeholder='Apellidos', required)
             .form-group.col-md-4
-              input#alertant_phone.form-control(type='text', name='alertant_phone', placeholder='Número de teléfono', required)
+              input#alertant_phone.form-control(type='tel', name='alertant_phone', placeholder='Número de teléfono', pattern='[0-9]{3}[0-9]{3}[0-9]{3}', required)
           
           div#affected_form_hidden(style='display:none;')
             label(for='affected_data')
@@ -73,7 +73,7 @@ block content
               .form-group.col-md-4
                 input#affected_last_name.form-control(type='text', name='affected_last_name', placeholder='Apellidos')
               .form-group.col-md-4
-                input#affected_phone.form-control(type='text', name='affected_phone', placeholder='Número de teléfono')
+                input#affected_phone.form-control(type='tel', name='affected_phone', placeholder='Número de teléfono', pattern='[0-9]{3}[0-9]{3}[0-9]{3}')
 
           .form-group
             label(for='location')

@@ -1,3 +1,5 @@
+var smart_contract = require('../dist/js/smart_contract');
+
 module.exports = {
     getEmergency : function(req, res, next)
     {
@@ -10,13 +12,13 @@ module.exports = {
     },
     postEmergency : function(req, res, next)
     {
-        var emergency = {
+        var resources = {
             ambulances : req.body.ambulances,
             firefighters : req.body.firefighters,
             police : req.body.police,
         };
-        console.log(emergency.ambulances);
         req.flash('info', 'Se ha enviado correctamente la emergencia');
+        smart_contract.set_resources(resources);
         return res.redirect('/solicitud');
     }
 }

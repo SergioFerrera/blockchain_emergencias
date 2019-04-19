@@ -1,12 +1,14 @@
-var contract = require('../../blockchain-project/build/contracts/EmergencyContract.json')
+var contract_json = require('../../blockchain-project/build/contracts/EmergencyContract.json');
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
-var EmergencyContract = web3.eth.contract(contract.abi);
-var contractInstance = EmergencyContract.at(contract.networks["5777"].address);
+var EmergencyContract = web3.eth.contract(contract_json.abi);
 
 module.exports = {
     set_resources : function (resources)
     {
+        const contract_creation = EmergencyContract.new({from: web3.eth.accounts[0], data: contract_json.bytecode, gas: 4712388, gasPrice: 100000000000});
+        const contract_address = web3.eth.getTransactionReceipt(contract_creation.transactionHash).contractAddress
+        var contractInstance = EmergencyContract.at(contract_address);
         let ambulances = resources.ambulances;
         let firefighters = resources.firefighters;
         let police = resources.police;

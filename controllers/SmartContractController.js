@@ -18,7 +18,7 @@ module.exports = {
             police : req.body.police,
         };
         req.flash('info', 'Se ha enviado correctamente la emergencia');
-        smart_contract.set_resources(resources);
+        smart_contract.set_resources(resources,req.user);
         return res.redirect('/solicitud');
     }
 }

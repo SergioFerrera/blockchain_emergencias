@@ -20,7 +20,7 @@ block content
           .form-group
             label(for='user_type')
               strong Tipo de usuario
-            select#user_type.form-control(onclick='user_switch()', required)
+            select#user_type.form-control(onclick='user_switch()', name='user_type', required)
               option(value='', selected, disabled) Por favor seleccione un tipo
               option Operador de emergencias
               option Proveedor de recursos

@@ -11,6 +11,7 @@ module.exports = {
         var salt = bcrypt.genSaltSync(10);
         var password = bcrypt.hashSync(req.body.password, salt);
         var user = {
+            user_type : req.body.user_type,
             email : req.body.email,
             organization_name : req.body.organization,
             latitude : req.body.latitude,

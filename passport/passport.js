@@ -26,6 +26,7 @@ module.exports = function(passport)
                 if(bcrypt.compareSync(password, user.password)){
                     return done(null, {
                         id : user.id,
+                        user_type : user.user_type,
                         email : user.email,
                         organization_name : user.organization_name,
                         latitude : user.latitude,

@@ -3,12 +3,19 @@ var smart_contract = require('../dist/js/smart_contract');
 module.exports = {
     getEmergency : function(req, res, next)
     {
-        return res.render('solicitud', {
-            message: req.flash('info'),
-            isAuthenticated : req.isAuthenticated(),
-            user : req.user,
-            title: 'Pagina de solicitud de recursos'
-        });
+        if (req.user.user_type != "Proveedor de recursos")
+        {
+            return res.render('solicitud', {
+                message: req.flash('info'),
+                isAuthenticated : req.isAuthenticated(),
+                user : req.user,
+                title: 'Pagina de solicitud de recursos'
+            });
+        }
+        else
+        {
+            return res.redirect('/');
+        }
     },
     postEmergency : function(req, res, next)
     {

@@ -11,8 +11,9 @@ block content
         if isAuthenticated 
           form.form-inline.text-white
             div.col-12.col-md-auto.p-0
-              a(href='solicitud')
-                button.btn.btn-primary.mr-2(type='button') Emergencia
+              if user.user_type != "Proveedor de recursos"
+                a(href='solicitud')
+                  button.btn.btn-primary.mr-2(type='button') Emergencia
               a(href='cierre_sesion')
                 button.btn.btn-secondary.mr-2(type='button') Cerrar sesión
         else

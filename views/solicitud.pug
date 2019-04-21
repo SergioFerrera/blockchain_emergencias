@@ -102,7 +102,14 @@ block content
             label(for='police')
               strong Número de policias
             input#police.form-control(type='number', name='police', placeholder='Ingresar el número de policias')
-          
+
+          .form-group
+            label(for='organizations')
+              strong Organizaciones receptoras
+            select#organizations.form-control(multiple, name='organizations', required)
+              each organization in organizations_names
+                option= organization.organization_name
+            small Para seleccionar varias opciones mantener pulsada la tecla CTRL (Windows/Linux) o CMD (MacOS)
           button.btn.btn-primary(type='submit') Enviar
   script(src='js/form_emergency.min.js')
   script(src='js/map.min.js')

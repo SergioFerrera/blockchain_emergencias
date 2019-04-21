@@ -150,6 +150,11 @@ describe('Comprobando formulario', function() {
             expect(body).contain('<label for="police"><strong>Número de policias</strong></label>');
         });
     });
+    it('Comprobando campo Organizaciones receptoras', function() {
+        request('http://localhost:3000/solicitud' , function(error, response, body) {
+            expect(body).contain('<label for="organizations"><strong>Organizaciones receptoras</strong></label>');
+        });
+    });
     it('Comprobando botón enviar', function() {
         request('http://localhost:3000/solicitud/registro' , function(error, response, body) {
             expect(body).contain('<button class="btn btn-primary" type="submit">Enviar</button>');

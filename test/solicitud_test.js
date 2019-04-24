@@ -40,7 +40,7 @@ describe('Comprobando menu', function() {
     describe('Comprobando botones del menú', function() {
         it('Comprobando botón de Emergencia', function() {
             request('http://localhost:3000/solicitud' , function(error, response, body) {
-                expect(body).contain('<button class="btn btn-primary mr-2" type="button">Emergencia</button>');
+                expect(body).contain('<button class="btn btn-primary mr-2" type="button">Solicitud</button>');
             });
         });
         it('Comprobando botón cierre de sesión', function() {

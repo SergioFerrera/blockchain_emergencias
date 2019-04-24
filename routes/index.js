@@ -15,6 +15,9 @@ router.post('/registro', controllers.UserController.postSignUp);
 router.get('/solicitud', AuthMiddleware.isLogged, controllers.SmartContractController.getEmergency);
 router.post('/solicitud', AuthMiddleware.isLogged, controllers.SmartContractController.postEmergency);
 
+/* GET emergencies contracts. */ 
+router.get('/emergencias', AuthMiddleware.isLogged, controllers.SmartContractController.getContracts);
+
 /* POST login. */ 
 router.post('/', passport.authenticate('local', {
     successRedirect : '/solicitud',

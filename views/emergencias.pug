@@ -1,0 +1,132 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4(role='navigation')
+    div.container
+      a.navbar-brand(href='/') BlockChain Emergencias
+      nav.navbar.navbar-dark.bg-dark
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+      div#navbarToggleExternalContent.collapse.navbar-collapse
+        form.form-inline.text-white
+            div.col-12.col-md-auto.p-0
+              if user.user_type != "Proveedor de recursos"
+                a(href='solicitud')
+                  button.btn.btn-primary.mr-2(type='button') Solicitud
+              a(href='emergencias')
+                button.btn.btn-primary.mr-2(type='button') Emergencias
+              a(href='cierre_sesion')
+                button.btn.btn-secondary.mr-2(type='button') Cerrar sesión
+                
+
+  main.container(role='main')
+    if message.length > 0
+      div.alert.alert-success(role='alert') #{message}
+    .jumbotron
+      h1 Panel de gestión de la organización #{user.organization_name}
+      p.lead Panel para satisfacer recursos demandados
+    .container
+      .row
+        .col-lg-4
+          .card.mb-4
+            .card-body
+              h5.card-title Emergencia #1
+              p
+                form.form-inline(action='/ambulances', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Sanitario
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='ambulances', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+              p
+                form.form-inline(action='/firefighters', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Bombero
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='firefighters', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+              p
+                form.form-inline(action='/police', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Policia
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='police', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+        .col-lg-4
+          .card.mb-4
+            .card-body
+              h5.card-title Emergencia #2
+              p
+                form.form-inline(action='/ambulances', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Sanitario
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='ambulances', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+              p
+                form.form-inline(action='/firefighters', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Bombero
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='firefighters', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+              p
+                form.form-inline(action='/police', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Policia
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='police', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+        .col-lg-4
+          .card
+            .card-body
+              h5.card-title Emergencia #3
+              p
+                form.form-inline(action='/ambulances', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Sanitario
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='ambulances', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+              p
+                form.form-inline(action='/firefighters', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Bombero
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='firefighters', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+              p
+                form.form-inline(action='/police', method='post', autocomplete='off')
+                  .col-4(style='padding-left:0;')
+                      p.mb-1 Policia
+                  .col-2(style='padding-left:0;')
+                      b.mb-1 10
+                  .col-3(style='padding-left:0;')
+                      input#ambulances.form-control.form-control-sm(type='number', name='police', style='max-width:60px;', required)
+                  .col-1(style='padding-left:0;')
+                    button.btn.btn-primary.btn-sm(type='submit') Enviar
+        

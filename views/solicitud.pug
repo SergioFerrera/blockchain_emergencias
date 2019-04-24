@@ -11,7 +11,10 @@ block content
         form.form-inline.text-white
             div.col-12.col-md-auto.p-0
               a(href='solicitud')
-                button.btn.btn-primary.mr-2(type='button') Emergencia
+                button.btn.btn-primary.mr-2(type='button') Solicitud
+              if user.user_type != "Operador de emergencias"
+                a(href='emergencias')
+                  button.btn.btn-primary.mr-2(type='button') Emergencias
               a(href='cierre_sesion')
                 button.btn.btn-secondary.mr-2(type='button') Cerrar sesión
                 

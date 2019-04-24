@@ -127,10 +127,5 @@ describe('Comprobando dependencias', function() {
                 expect(body).contain('<link rel="stylesheet" href="css/bootstrap.min.css">');
             });
         });
-        it('Comprobando Google Maps API', function() {
-            request('http://localhost:3000/emergencias' , function(error, response, body) {
-                expect(body).contain('<link rel="stylesheet" href="css/map.min.css">');
-            });
-        });
     })
 });

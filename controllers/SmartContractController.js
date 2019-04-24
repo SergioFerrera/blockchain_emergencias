@@ -22,7 +22,7 @@ module.exports = {
         }
         else
         {
-            return res.redirect('/');
+            return res.redirect('/emergencias');
         }
     },
     postEmergency : function(req, res, next)
@@ -35,5 +35,21 @@ module.exports = {
         req.flash('info', 'Se ha enviado correctamente la emergencia');
         smart_contract.set_resources(resources,req.user);
         return res.redirect('/solicitud');
+    },
+    getContracts : function(req, res, next)
+    {
+        if (req.user.user_type != "Operador de emergencias")
+        {
+            return res.render('emergencias', {
+                message: req.flash('info'),
+                isAuthenticated : req.isAuthenticated(),
+                user : req.user,
+                title: 'Emergencias registradas'
+            });
+        }
+        else
+        {
+            return res.redirect('/solicitud');
+        }
     }
 }

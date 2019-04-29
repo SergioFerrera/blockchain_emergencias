@@ -10,7 +10,7 @@ block content
       div#navbarToggleExternalContent.collapse.navbar-collapse
         form.form-inline.text-white
             div.col-12.col-md-auto.p-0
-              if user.user_type != "Proveedor de recursos"
+              if user.user_type != 'Proveedor de recursos'
                 a(href='solicitud')
                   button.btn.btn-primary.mr-2(type='button') Solicitud
               a(href='emergencias')
@@ -24,109 +24,44 @@ block content
       div.alert.alert-success(role='alert') #{message}
     .jumbotron
       h1 Panel de gestión de la organización #{user.organization_name}
-      p.lead Panel para satisfacer recursos demandados
+      br
+      h4 Recursos disponibles:
+      br
+      p Ambulancias: #[b#available_1 #{user.ambulances}] &nbsp; Bomberos: #[b#available_2 #{user.firefighters}] &nbsp; Policia: #[b#available_3 #{user.police}]
     .container
       .row
-        .col-lg-4
-          .card.mb-4
-            .card-body
-              h5.card-title Emergencia #1
-              p
-                form.form-inline(action='/ambulances', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Sanitario
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='ambulances', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-              p
-                form.form-inline(action='/firefighters', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Bombero
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#firefighters.form-control.form-control-sm(type='number', name='firefighters', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-              p
-                form.form-inline(action='/police', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Policia
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#police.form-control.form-control-sm(type='number', name='police', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-        .col-lg-4
-          .card.mb-4
-            .card-body
-              h5.card-title Emergencia #2
-              p
-                form.form-inline(action='/ambulances', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Sanitario
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='ambulances', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-              p
-                form.form-inline(action='/firefighters', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Bombero
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='firefighters', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-              p
-                form.form-inline(action='/police', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Policia
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='police', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-        .col-lg-4
-          .card
-            .card-body
-              h5.card-title Emergencia #3
-              p
-                form.form-inline(action='/ambulances', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Sanitario
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='ambulances', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-              p
-                form.form-inline(action='/firefighters', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Bombero
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='firefighters', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-              p
-                form.form-inline(action='/police', method='post', autocomplete='off')
-                  .col-4(style='padding-left:0;')
-                      p.mb-1 Policia
-                  .col-2(style='padding-left:0;')
-                      b.mb-1 10
-                  .col-3(style='padding-left:0;')
-                      input#ambulances.form-control.form-control-sm(type='number', name='police', style='max-width:60px;', required)
-                  .col-1(style='padding-left:0;')
-                    button.btn.btn-primary.btn-sm(type='submit') Enviar
-        
+        each e in emergencies
+          .col-lg-4
+            .card.mb-4
+              .card-body
+                h5.card-title Emergencia ##{e.id}
+                form(action='/emergencias', method='post', autocomplete='off')
+                  input#contract_id(name='contract_id' type='hidden' value=e.id)
+                  input#user_id(name='user_id' type='hidden' value=user.id)
+                  input#user_ambulances(name='user_ambulances' type='hidden' value=user.ambulances)
+                  input#user_firefighters(name='user_firefighters' type='hidden' value=user.firefighters)
+                  input#user_police(name='user_police' type='hidden' value=user.police)
+                  .row
+                    .col-6
+                      p Ambulancias
+                    .col-3
+                      b #{e.ambulances.toNumber()}
+                    .col-3
+                      input#resource_1.form-control.form-control-sm(type='number', min='0', max=e.ambulances.toNumber(), name='resource_1', oninput='check_available(this)')
+                  .row
+                    .col-6
+                      p Bomberos
+                    .col-3
+                      b #{e.firefighters.toNumber()}
+                    .col-3
+                      input#resource_2.form-control.form-control-sm(type='number', min='0', max=e.firefighters.toNumber(), name='resource_2', oninput='check_available(this)')
+                  .row
+                    .col-6
+                      p Policia
+                    .col-3
+                      b #{e.police.toNumber()}
+                    .col-3
+                      input#resource_3.form-control.form-control-sm(type='number', min='0', max=e.police.toNumber(), name='resource_3', oninput='check_available(this, 2)')
+                  .d-flex.justify-content-center
+                    button.btn.btn-primary(type='submit') Enviar
+  script(src='js/form_send_resource.js')

@@ -81,5 +81,26 @@ module.exports = {
         {
             return res.redirect('/solicitud');
         }
+    },
+    postContracts : function(req, res, next)
+    {
+        for(var i=1;i<4;i++){
+            if(req.body['resource_' + i]=='')
+                req.body['resource_' + i]='0';
+        };
+        var config = require('../database/config');
+        var db = mysql.createConnection(config);
+        db.connect();
+        db.query('SELECT address FROM contracts WHERE id=?', req.body.contract_id, function(err, rows, fields){
+            if (err) throw err;
+            var contractInstance = EmergencyContract.at(rows[0].address);
+            contractInstance.send_resources(req.body.resource_1,req.body.resource_2,req.body.resource_3,{from: web3.eth.accounts[req.body.user_id-1]});
+            contractInstance.check_request({from: web3.eth.accounts[req.body.user_id-1]});
+        });
+        db.query('UPDATE users SET ambulances=?, firefighters=?, police=? WHERE id=?', [req.body.user_ambulances-req.body.resource_1, req.body.user_firefighters-req.body.resource_2, req.body.user_police-req.body.resource_3, req.body.user_id], function(err, rows, fields){
+            if (err) throw err;
+        });
+        req.flash('info', 'Se han enviado correctamente los recursos');
+        return res.redirect('/emergencias');
     }
 }

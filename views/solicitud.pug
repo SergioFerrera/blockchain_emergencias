@@ -97,17 +97,17 @@ block content
           .form-group
             label(for='ambulances')
               strong Número de ambulancias
-            input#ambulances.form-control(type='number', name='ambulances', placeholder='Ingresar el número de ambulancias')
+            input#ambulances.form-control(type='number', min='0', name='ambulances', placeholder='Ingresar el número de ambulancias')
 
           .form-group
             label(for='firefighters')
               strong Número de camiones de bomberos
-            input#firefighters.form-control(type='number', name='firefighters', placeholder='Ingresar el número de camiones de bomberos')
+            input#firefighters.form-control(type='number', min='0', name='firefighters', placeholder='Ingresar el número de camiones de bomberos')
          
           .form-group
             label(for='police')
               strong Número de policias
-            input#police.form-control(type='number', name='police', placeholder='Ingresar el número de policias')
+            input#police.form-control(type='number', min='0', name='police', placeholder='Ingresar el número de policias')
 
           .form-group
             label(for='organizations')

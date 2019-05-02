@@ -64,45 +64,6 @@ describe('Comprobando titulo (h1) y descripción del proyecto', function() {
     });
 });
 
-describe('Comprobando visualización de emergencias', function() {
-    it('Comprobando existencia de etiquetas de visualización correspondientes para emergencia', function() {
-        request('http://localhost:3000/emergencias' , function(error, response, body) {
-            expect(body).contain('<div class="col-lg-4">');
-            expect(body).contain('<div class="card mb-4">');
-            expect(body).contain('<div class="card-body">');
-        });
-    });
-    it('Comprobando titulo de emergencia', function() {
-        request('http://localhost:3000/emergencias' , function(error, response, body) {
-            expect(body).contain('<h5 class="card-title">Emergencia #');
-        });
-    });
-    it('Comprobando existencia de formulario para satisfacer demanda de ambulancias', function() {
-        request('http://localhost:3000/emergencias' , function(error, response, body) {
-            expect(body).contain('<form class="form-inline" action="/ambulances" method="post" autocomplete="off">');
-            expect(body).contain('<p class="mb-1">Sanitario</p>');
-            expect(body).contain('<input class="form-control form-control-sm" id="ambulances"');
-            expect(body).contain('<button class="btn btn-primary btn-sm" type="submit">Enviar</button>');
-        });
-    });
-    it('Comprobando existencia de formulario para satisfacer demanda de bomberos', function() {
-        request('http://localhost:3000/emergencias' , function(error, response, body) {
-            expect(body).contain('<form class="form-inline" action="/firefighters" method="post" autocomplete="off">');
-            expect(body).contain('<p class="mb-1">Bombero</p>');
-            expect(body).contain('<input class="form-control form-control-sm" id="firefighters"');
-            expect(body).contain('<button class="btn btn-primary btn-sm" type="submit">Enviar</button>');
-        });
-    });
-    it('Comprobando existencia de formulario para satisfacer demanda de ambulancias', function() {
-        request('http://localhost:3000/emergencias' , function(error, response, body) {
-            expect(body).contain('<form class="form-inline" action="/police" method="post" autocomplete="off">');
-            expect(body).contain('<p class="mb-1">Policia</p>');
-            expect(body).contain('<input class="form-control form-control-sm" id="police"');
-            expect(body).contain('<button class="btn btn-primary btn-sm" type="submit">Enviar</button>');
-        });
-    });
-});
-
 describe('Comprobando dependencias', function() {
     describe('Javascript', function() {
         it('Comprobando jquery', function() {

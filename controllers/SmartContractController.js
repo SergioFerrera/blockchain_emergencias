@@ -8,7 +8,11 @@ var EmergencyContract = web3.eth.contract(contract_json.abi);
 module.exports = {
     getEmergency : function(req, res, next)
     {
-        if (req.user.user_type != "Proveedor de recursos")
+        if (req.user.user_type == "Admin")
+        {
+            return res.redirect('/admin');
+        }
+        else if (req.user.user_type != "Proveedor de recursos")
         {
             var config = require('../database/config');
             var db = mysql.createConnection(config);
@@ -43,7 +47,7 @@ module.exports = {
     },
     getContracts : function(req, res, next)
     {
-        if (req.user.user_type != "Operador de emergencias")
+        if (req.user.user_type != "Operador de emergencias" && req.user.user_type != "Admin") 
         {
             var config = require('../database/config');
             var db = mysql.createConnection(config);
@@ -103,5 +107,34 @@ module.exports = {
         });
         req.flash('info', 'Se han enviado correctamente los recursos');
         return res.redirect('/emergencias');
+    },
+    getAdmin : function(req, res, next)
+    {
+        if(req.user.user_type == "Admin")
+        {
+            var config = require('../database/config');
+            var db = mysql.createConnection(config);
+            db.connect();
+            db.query('SELECT * FROM contracts', function(err, rows, fields){
+                if (err) throw err;
+                var emergencies = [];
+                var i;
+                rows.forEach(function(i) {
+                    var contractInstance = EmergencyContract.at(i.address);
+                    emergencies.push({id: i.id, state: contractInstance.state(), ambulances: contractInstance.ambulances(), firefighters: contractInstance.firefighters(), police: contractInstance.police()});
+                });
+                return res.render('admin_panel', {
+                    emergencies: emergencies,
+                    message: req.flash('info'),
+                    isAuthenticated : req.isAuthenticated(),
+                    user : req.user,
+                    title: 'Panel de administración'
+                });
+            });
+        }
+        else
+        {
+            return res.redirect('/');
+        }
     }
 }

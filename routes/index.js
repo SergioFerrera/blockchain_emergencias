@@ -19,6 +19,9 @@ router.post('/solicitud', AuthMiddleware.isLogged, controllers.SmartContractCont
 router.get('/emergencias', AuthMiddleware.isLogged, controllers.SmartContractController.getContracts);
 router.post('/emergencias', controllers.SmartContractController.postContracts);
 
+/* GET admin panel. */ 
+router.get('/admin', AuthMiddleware.isLogged, controllers.SmartContractController.getAdmin);
+
 /* POST login. */ 
 router.post('/', passport.authenticate('local', {
     successRedirect : '/solicitud',

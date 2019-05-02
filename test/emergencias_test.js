@@ -54,7 +54,7 @@ describe('Comprobando menu', function() {
 describe('Comprobando titulo (h1) y descripción del proyecto', function() {
     it('Comprobando titulo (h1)', function() {
         request('http://localhost:3000/emergencias' , function(error, response, body) {
-            expect(body).contain('<h1>Panel de gestión de la organización');
+            expect(body).contain('<h1>Panel de gestión de la organización</h1>');
         });
     });
     it('Comprobando descripción del proyecto', function() {

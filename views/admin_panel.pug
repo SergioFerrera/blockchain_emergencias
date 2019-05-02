@@ -1,0 +1,72 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4(role='navigation')
+    div.container
+      a.navbar-brand(href='/') BlockChain Emergencias
+      nav.navbar.navbar-dark.bg-dark
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+      div#navbarToggleExternalContent.collapse.navbar-collapse
+        form.form-inline.text-white
+            div.col-12.col-md-auto.p-0
+              a(href='cierre_sesion')
+                button.btn.btn-secondary.mr-2(type='button') Cerrar sesión
+                
+  main.container(role='main')
+    .jumbotron
+      h1 Panel de administración
+      p.lead Panel que muestra todas las emergencias recibidas en el centro de emergencias
+    .container
+      .row
+        .col-12.mb-2
+          .d-flex.justify-content-center
+            label(for='emergency_state')
+              strong Estado de emergencia
+                select#emergency_state.form-control(onclick='show()', name='emergency_state', autocomplete='off')
+                  option(selected) Todos
+                  option Pendientes
+                  option Finalizados
+        each e in emergencies
+          .col-lg-4
+            if e.state == true
+              .card.text-white.bg-success.pending.mb-4
+                .card-body
+                  h5.card-title Emergencia ##{e.id}
+                  p.card-text
+                    .row
+                      .col-6
+                        p Ambulancias
+                      .col-6
+                        b #{e.ambulances.toNumber()}
+                    .row
+                      .col-6
+                        p Bomberos
+                      .col-6
+                        b #{e.firefighters.toNumber()}
+                    .row
+                      .col-6
+                        p Policia
+                      .col-6
+                        b #{e.police.toNumber()}
+            else
+              .card.text-white.bg-danger.finalized.mb-4
+                .card-body
+                  h5.card-title Emergencia ##{e.id}
+                  p.card-text
+                    .row
+                      .col-6
+                        p Ambulancias
+                      .col-6
+                        b #{e.ambulances.toNumber()}
+                    .row
+                      .col-6
+                        p Bomberos
+                      .col-6
+                        b #{e.firefighters.toNumber()}
+                    .row
+                      .col-6
+                        p Policia
+                      .col-6
+                        b #{e.police.toNumber()}
+  script(src='js/admin_filter.min.js')

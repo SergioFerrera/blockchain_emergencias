@@ -54,13 +54,14 @@ module.exports = {
                 var emergencies = [];
                 var i;
                 rows.forEach(function(i) {
+                    var organizations = [];
                     var contractInstance = EmergencyContract.at(i.address);
                     if (contractInstance.state()==true){
                         for (j = 0; j < contractInstance.get_organizations_length(); j++){
-                            if (contractInstance.organizations(j) == organization_name){
-                                emergencies.push({id: i.id, ambulances: contractInstance.ambulances(), firefighters: contractInstance.firefighters(), police: contractInstance.police()});
-                            }
+                            organizations.push(contractInstance.organizations(j));
                         };
+                        if (organizations.indexOf(organization_name)!= '-1')
+                            emergencies.push({id: i.id, ambulances: contractInstance.ambulances(), firefighters: contractInstance.firefighters(), police: contractInstance.police()});
                     };
                 });
                 db.query('SELECT * FROM users WHERE id=?', req.user.id, function(err, rows, fields){

@@ -41,11 +41,11 @@ contract EmergencyContract
         return organizations.length;
     }
 
-    function send_resources(int r_1, int r_2, int r_3) public
+    function send_resources(int resource_1, int resource_2, int resource_3) public
     {
-        ambulances = ambulances-r_1;
-        firefighters = firefighters-r_2;
-        police = police-r_3;
+        ambulances = ambulances-resource_1;
+        firefighters = firefighters-resource_2;
+        police = police-resource_3;
     }
 
     function check_request() public

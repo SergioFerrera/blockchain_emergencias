@@ -30,7 +30,7 @@ block content
         each e in emergencies
           .col-lg-4
             if e.state == true
-              .card.text-white.bg-success.pending.mb-4
+              .card.text-white.bg-danger.pending.mb-4
                 .card-body
                   h5.card-title Emergencia ##{e.id}
                   p.card-text
@@ -50,7 +50,7 @@ block content
                       .col-6
                         b #{e.police.toNumber()}
             else
-              .card.text-white.bg-danger.finalized.mb-4
+              .card.text-white.bg-success.finalized.mb-4
                 .card-body
                   h5.card-title Emergencia ##{e.id}
                   p.card-text

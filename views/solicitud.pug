@@ -114,7 +114,7 @@ block content
               strong Organizaciones receptoras
             select#organizations.form-control(multiple, name='organizations', required)
               each organization in organizations_names
-                if organization.organization_name != 'centro de emergencias'
+                if organization.organization_name != 'centro de emergencias' && organization.organization_name != 'admin'
                   option= organization.organization_name
             small Para seleccionar varias opciones mantener pulsada la tecla CTRL (Windows/Linux) o CMD (MacOS)
           button.btn.btn-primary(type='submit') Enviar

@@ -17,7 +17,7 @@ module.exports = {
             var config = require('../database/config');
             var db = mysql.createConnection(config);
             db.connect();
-            db.query('SELECT DISTINCT organization_name FROM users', function (err, rows, fields) {
+            db.query('SELECT DISTINCT organization_name FROM users WHERE ambulances!=0 OR firefighters!=0 OR police!=0', function (err, rows, fields) {
                 if (err) throw err;
                 return res.render('solicitud', {
                     organizations_names : rows,

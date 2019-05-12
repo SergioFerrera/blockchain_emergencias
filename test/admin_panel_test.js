@@ -101,6 +101,11 @@ describe('Comprobando dependencias', function() {
                 expect(body).contain('<script src="js/umd/popper.min.js"></script>');
             });
         });
+        it('Comprobando loading_button.min.js', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<script src="js/loading_button.min.js"></script>');
+            });
+        });
     })
     describe('CSS', function() {
         it('Comprobando bootstrap', function() {

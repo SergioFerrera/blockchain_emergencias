@@ -40,7 +40,7 @@ describe('Comprobando menu', function() {
     describe('Comprobando botones del menú', function() {
         it('Comprobando botón de Emergencia', function() {
             request('http://localhost:3000/emergencias' , function(error, response, body) {
-                expect(body).contain('<button class="btn btn-primary mr-2" type="button">Emergencias</button>');
+                expect(body).contain('<button class="btn btn-primary mr-2" type="button" id="loading_button">Emergencias</button>');
             });
         });
         it('Comprobando botón cierre de sesión', function() {
@@ -79,6 +79,11 @@ describe('Comprobando dependencias', function() {
         it('Comprobando popper', function() {
             request('http://localhost:3000' , function(error, response, body) {
                 expect(body).contain('<script src="js/umd/popper.min.js"></script>');
+            });
+        });
+        it('Comprobando loading_button.min.js', function() {
+            request('http://localhost:3000' , function(error, response, body) {
+                expect(body).contain('<script src="js/loading_button.min.js"></script>');
             });
         });
     })

@@ -11,12 +11,12 @@ block content
         if isAuthenticated 
           form.form-inline.text-white
             div.col-12.col-md-auto.p-0
-              if user.user_type != "Proveedor de recursos"
+              if user.user_type != 'Proveedor de recursos'
                 a(href='solicitud')
                   button.btn.btn-primary.mr-2(type='button') Solicitud
-              if user.user_type != "Operador de emergencias"
+              if user.user_type != 'Operador de emergencias'
                 a(href='emergencias')
-                  button.btn.btn-primary.mr-2(type='button') Emergencias
+                  button.btn.btn-primary.mr-2(type='button', id='loading_button') Emergencias
               a(href='cierre_sesion')
                 button.btn.btn-secondary.mr-2(type='button') Cerrar sesión
         else
@@ -26,7 +26,7 @@ block content
             div.form-group.mr-md-2
               input#passwordInput.form-control.form-control-sm(placeholder='Contraseña', type='password', name='password', required)
             div.col-12.col-md-auto.p-0
-              button.btn.btn-primary.mr-2(type='submit') Login
+              button.btn.btn-primary.mr-2(type='submit', id='loading_button') Login
               a(href='registro')
                 button.btn.btn-secondary.mr-sm-2(type='button') Registrarse
                 
